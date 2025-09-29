@@ -20,6 +20,7 @@ RSpec.feature "Color scheme selection" do
       let(:contrast) { :system }
 
       it "uses system color scheme and system contrast" do
+        visit "/"
         expect(page.body).to match("system-system-.*.css")
         expect(page.body).to_not match("system-normal-.*.css")
         expect(page.body).to_not match("system-high-.*.css")
@@ -37,6 +38,7 @@ RSpec.feature "Color scheme selection" do
       let(:contrast) { :normal }
 
       it "uses system color scheme and normal contrast" do
+        visit "/"
         expect(page.body).to_not match("system-system-.*.css")
         expect(page.body).to match("system-normal-.*.css")
         expect(page.body).to_not match("system-high-.*.css")
@@ -54,6 +56,7 @@ RSpec.feature "Color scheme selection" do
       let(:contrast) { :high }
 
       it "uses system color scheme and high contrast" do
+        visit "/"
         expect(page.body).to_not match("system-system-.*.css")
         expect(page.body).to_not match("system-normal-.*.css")
         expect(page.body).to match("system-high-.*.css")
@@ -71,6 +74,7 @@ RSpec.feature "Color scheme selection" do
       let(:contrast) { :system }
 
       it "uses light color scheme and system contrast" do
+        visit "/"
         expect(page.body).to_not match("system-system-.*.css")
         expect(page.body).to_not match("system-normal-.*.css")
         expect(page.body).to_not match("system-high-.*.css")
@@ -88,6 +92,7 @@ RSpec.feature "Color scheme selection" do
       let(:contrast) { :system }
 
       it "uses dark color scheme and system contrast" do
+        visit "/"
         expect(page.body).to_not match("system-system-.*.css")
         expect(page.body).to_not match("system-normal-.*.css")
         expect(page.body).to_not match("system-high-.*.css")
@@ -105,6 +110,7 @@ RSpec.feature "Color scheme selection" do
       let(:contrast) { :normal }
 
       it "uses light color scheme and normal contrast" do
+        visit "/"
         expect(page.body).to_not match("system-system-.*.css")
         expect(page.body).to_not match("system-normal-.*.css")
         expect(page.body).to_not match("system-high-.*.css")
@@ -122,6 +128,7 @@ RSpec.feature "Color scheme selection" do
       let(:contrast) { :high }
 
       it "uses system color scheme and system contrast" do
+        visit "/"
         expect(page.body).to_not match("system-system-.*.css")
         expect(page.body).to_not match("system-normal-.*.css")
         expect(page.body).to_not match("system-high-.*.css")
@@ -139,6 +146,7 @@ RSpec.feature "Color scheme selection" do
       let(:contrast) { :normal }
 
       it "uses dark color scheme and normal contrast" do
+        visit "/"
         expect(page.body).to_not match("system-system-.*.css")
         expect(page.body).to_not match("system-normal-.*.css")
         expect(page.body).to_not match("system-high-.*.css")
@@ -156,6 +164,7 @@ RSpec.feature "Color scheme selection" do
       let(:contrast) { :high }
 
       it "uses dark color scheme and high contrast" do
+        visit "/"
         expect(page.body).to_not match("system-system-.*.css")
         expect(page.body).to_not match("system-normal-.*.css")
         expect(page.body).to_not match("system-high-.*.css")

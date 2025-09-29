@@ -67,6 +67,7 @@ group :test, :development do
   gem "letter_opener"
   gem "listen"
   gem "prism" # rm after https://github.com/presidentbeef/brakeman/issues/1909 closes
+  gem "rack_session_access"
   gem "rb-readline"
   gem "rspec-rails"
   gem "simplecov", require: false

@@ -692,12 +692,14 @@ class Story < ApplicationRecord
     !new_record? && user&.id == user_id && created_at < DELETEABLE_DAYS.days.ago
   end
 
-  def is_flaggable?
-    if created_at && self.score > FLAGGABLE_MIN_SCORE
-      Time.current - created_at <= FLAGGABLE_DAYS.days
-    else
-      false
-    end
+  def is_within_flaggable_days?
+    return false unless created_at
+
+    Time.current - created_at <= FLAGGABLE_DAYS.days
+  end
+
+  def is_above_flaggable_min_score?
+    score >= FLAGGABLE_MIN_SCORE
   end
 
   def is_editable_by_user?(user)

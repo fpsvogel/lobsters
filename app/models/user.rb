@@ -311,14 +311,9 @@ class User < ApplicationRecord
   def can_flag?(obj)
     if is_new?
       return false
-    elsif obj.is_a?(Story)
-      if obj.is_flaggable?
-        return true
-      elsif obj.current_flagged?
-        # user can unvote
-        return true
-      end
-    elsif obj.is_a?(Comment) && obj.is_flaggable?
+    elsif obj.is_a?(Story) && obj.is_within_flaggable_days?
+      return true
+    elsif obj.is_a?(Comment) && obj.is_within_flaggable_days?
       return karma >= MIN_KARMA_TO_FLAG
     end
 

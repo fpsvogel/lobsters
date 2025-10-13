@@ -265,7 +265,7 @@ class StoriesController < ApplicationController
       return render plain: "invalid reason", status: 400
     end
 
-    if !@user.can_flag?(story)
+    if !story.is_above_flaggable_min_score? || !@user.can_flag?(story)
       return render plain: "not permitted to flag", status: 400
     end
 
